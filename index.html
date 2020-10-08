@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Random Card Picker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+</head>
+<style>
+#img {
+	padding:2em;
+}
+.footer{
+	margin-top:3em;
+}
+</style>
+<body style="text-align:center">
+
+<div class="container">
+
+<h3 id="category"  role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Pick a Card</h3>
+
+<div class="collapse" id="collapseExample">
+  <div id="description" class="well"></div>
+</div>
+
+<img id="img" src="/images/0.jpg" onClick="handleClick();" />
+<br />
+
+<button onClick="handleClick();" class="btn btn-default" type="submit">New Card</button>
+
+<div class="footer">
+Crowdsourcing Community Heuristics by <a href="http://crowdevaluation.nl/">crowdevaluation.nl</a>
+</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+const categories = {
+	"Purpose": "The platform's purpose identifies the members’ needs and identifies the owner’s goals.",
+	"Moderation": "The platform needs monitoring by moderators and other users to keep the platform a pleasant working environment. Regulation will help to make the expected behavior clear and can be referred to when violated.",
+	"Members": "What would a platform be without its members? Members should be able to build up an identity on the platform using a profile. For long lasting communities, the platform should recruit and trigger new members to contribute. The platform should stimulate the current member’s involvement through increased levels of participation.",
+	"Common Ground": "The platform should offer mechanisms that support members to find common grounds. On the platforms, members should be able to subdivide from the community in intimate subgroups to accommodate growth and prevent becoming too diverse.",
+	"Contribution": "Stimulating members to contribute to the platform, can be one of the toughest tasks of the platform. The platform should show what others members have contributed, make a certain appeal to the members by targeted requests and have a clear description of the request. Important is that the threshold before contribution is adequate and that there are enough intrinsic and extrinsic motivators for the members to contribute.",
+	"Platform": "The platform should present itself to its members with and unique position compared to competitors, having good aesthetics, a trustworthy reputation and motive. The platform should offer tools that help fulfil its purpose. The members can create certain rituals over time and their actions should be visible, giving a feeling of a populated space.",
+}
+
+const cards = [
+	{ category: "Purpose", filename: "0" },
+	{ category: "Purpose", filename: "1" },
+	{ category: "Purpose", filename: "2" },
+	{ category: "Moderation", filename: "3" },
+	{ category: "Moderation", filename: "4" },
+	{ category: "Moderation", filename: "5" },
+	{ category: "Members", filename: "6" },
+	{ category: "Members", filename: "7" },
+	{ category: "Members", filename: "8" },
+	{ category: "Members", filename: "9" },
+	{ category: "Common Ground", filename: "10" },
+	{ category: "Common Ground", filename: "11" },
+	{ category: "Common Ground", filename: "12" },
+	{ category: "Contribution", filename: "13" },
+	{ category: "Contribution", filename: "14" },
+	{ category: "Contribution", filename: "15" },
+	{ category: "Contribution", filename: "16" },
+	{ category: "Contribution", filename: "17" },
+	{ category: "Contribution", filename: "18" },
+	{ category: "Platform", filename: "19" },
+	{ category: "Platform", filename: "20" },
+	{ category: "Platform", filename: "21" },
+	{ category: "Platform", filename: "22" },
+	{ category: "Platform", filename: "23" },
+	{ category: "Platform", filename: "24" },
+	{ category: "Platform", filename: "25" },
+]
+
+let randomNum = 0;
+const numCards = 20;
+function handleClick() {
+	randomNum = Math.floor(Math.random() * cards.length);
+	const currentCard = cards[randomNum];
+	const img = document.getElementById('img');
+	img.src = "images/" + currentCard.filename + ".jpg"
+	const cat = document.getElementById('category');
+	cat.innerHTML = currentCard.category;
+	const desc = document.getElementById('description');
+	desc.innerHTML = categories[currentCard.category];
+}
+</script>
+
+</body>
+</html>
