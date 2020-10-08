@@ -52,32 +52,32 @@ const categories = {
 }
 
 const cards = [
-	{ category: "Purpose", filename: "0" },
 	{ category: "Purpose", filename: "1" },
 	{ category: "Purpose", filename: "2" },
-	{ category: "Moderation", filename: "3" },
+	{ category: "Purpose", filename: "3" },
 	{ category: "Moderation", filename: "4" },
 	{ category: "Moderation", filename: "5" },
-	{ category: "Members", filename: "6" },
+	{ category: "Moderation", filename: "6" },
 	{ category: "Members", filename: "7" },
 	{ category: "Members", filename: "8" },
 	{ category: "Members", filename: "9" },
-	{ category: "Common Ground", filename: "10" },
+	{ category: "Members", filename: "10" },
 	{ category: "Common Ground", filename: "11" },
 	{ category: "Common Ground", filename: "12" },
-	{ category: "Contribution", filename: "13" },
+	{ category: "Common Ground", filename: "13" },
 	{ category: "Contribution", filename: "14" },
 	{ category: "Contribution", filename: "15" },
 	{ category: "Contribution", filename: "16" },
 	{ category: "Contribution", filename: "17" },
 	{ category: "Contribution", filename: "18" },
-	{ category: "Platform", filename: "19" },
+	{ category: "Contribution", filename: "19" },
 	{ category: "Platform", filename: "20" },
 	{ category: "Platform", filename: "21" },
 	{ category: "Platform", filename: "22" },
 	{ category: "Platform", filename: "23" },
 	{ category: "Platform", filename: "24" },
 	{ category: "Platform", filename: "25" },
+	{ category: "Platform", filename: "26" },
 ]
 
 let randomNum = 0;
@@ -87,10 +87,10 @@ function handleClick() {
 	const currentCard = cards[randomNum];
 	const img = document.getElementById('img');
 	img.src = "images/" + currentCard.filename + ".jpg"
-	const cat = document.getElementById('category');
-	cat.innerHTML = currentCard.category;
 	const desc = document.getElementById('description');
 	desc.innerHTML = categories[currentCard.category];
+	const cat = document.getElementById('category');
+	cat.innerHTML = currentCard.category;
 }
 </script>
 
